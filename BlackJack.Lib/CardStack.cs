@@ -23,6 +23,7 @@ namespace BlackJack.Lib
                     }
                 }
             }
+            Shuffle(3);
         }
 
         public void Shuffle(int numberOfShuffles)
