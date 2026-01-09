@@ -17,7 +17,7 @@ namespace BlackJack.Lib
         }
         public override string ToString()
         {
-            
+            return $"{Value} of {Suit}s";
         }
     }
 }
