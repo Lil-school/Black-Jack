@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace BlackJack.Lib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CardStack
     {
         public List<Card> Cards { get; }
+
         const int NUMBER_OF_DECKS = 6;
         public CardStack()
         {
             Cards = new List<Card>();
             for(int deck = 0; deck < NUMBER_OF_DECKS; deck++)
             {
-                foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
-                {
-                    foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
-                    {
-                        Cards.Add(new Card(suit, value));
-                    }
-                }
+                CardDeck cardDeck = new CardDeck();
+                Cards.AddRange(cardDeck.Cards);
             }
             Shuffle(3);
         }
