@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlackJack.Lib
 {
-    public enum CardValue
+    public enum HandStatus
     {
-        Ace=1,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Jack,Queen,King
+        Safe, Busted, BlackJack, TripleSeven, FiveCardCharlie
     }
 }

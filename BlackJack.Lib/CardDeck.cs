@@ -11,7 +11,7 @@ namespace BlackJack.Lib
     /// </summary>
     public class CardDeck
     {
-        public Card[] Cards { get; }
+        public ICard[] Cards { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CardDeck"/> class with a full set of 52 cards.
@@ -19,7 +19,7 @@ namespace BlackJack.Lib
         /// </summary>
         public CardDeck() 
         {
-            Cards = new Card[52];
+            Cards = new ICard[52];
             var index = 0;
 
             foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
