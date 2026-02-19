@@ -1,28 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlackJack.Lib
 {
-    public class Hand
+    /// <summary>
+    /// Represents a collection of playing cards held by a player, along with the current status of the hand in a card
+    /// </summary>
+    public partial class Hand
     {
-        List<ICard> Hands { get; } =new List<ICard>();
-        HandStatus _handStatus { get; set; }
+        /// <summary>
+        /// Gets the collection of cards currently held in the hand.
+        /// </summary>
+        List<ICard> GetHand { get; } =new List<ICard>();
+
+        /// <summary>
+        /// Gets or sets the current status of the hand.
+        /// </summary>
+        public HandStatus Status { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the Hand class and updates its status.
+        /// </summary>
+        /// <remarks>The constructor calls UpdateHandStatus to ensure the hand's initial state is set. Use this
+        /// constructor to create a Hand object with its status properly initialized.</remarks>
         public Hand() 
         {
-            UpdateHandStatus();
+            CalculateValue();
         }
+
+        /// <summary>
+        /// Adds a card to the current hand.
+        /// </summary>
+        /// <param name="card">The card to add to the hand. Cannot be null.</param>
         public void AddCard(ICard card)
         {
-            Hands.Add(card);
+            GetHand.Add(card);
         }
-        public int CalculateHandValue()
+
+        /// <summary>
+        /// Calculates the total value of the current hand according to standard Blackjack rules.
+        /// </summary>
+        /// <returns>The total value of the hand as an integer. The value will be between 0 and 21 or higher if the hand is bust.</returns>
+        public int CalculateValue()
         {
             int handValue = 0;
             int numberOfAces = 0;
-            foreach (var card in Hands)
+            foreach (var card in GetHand)
             {
                 if(card.Value==CardValue.Ace)
                 {
@@ -42,23 +65,40 @@ namespace BlackJack.Lib
             {
                 handValue -= 10;
                 numberOfAces--;
-                _handStatus = HandStatus.Safe;
             }
+            UpdateHandStatus(handValue);
             return handValue;
         }
-        void UpdateHandStatus() 
+
+        /// <summary>
+        /// Updates the hand status based on the current cards and their total value.
+        /// </summary>
+        /// <remarks>This method determines whether the hand is busted, a blackjack, a triple seven, a
+        /// five card charlie, or safe, according to standard blackjack rules and special conditions. Call this method
+        /// after modifying the hand to ensure the status reflects the latest state.</remarks>
+        void UpdateHandStatus(int handValue) 
         { 
-            int handValue=CalculateHandValue();
+            
             if (handValue > 21)
             {
-                _handStatus = HandStatus.Busted;
+                Status = HandStatus.Busted;
             }
-            else if (handValue==21 && Hands.Count ==2)
+            else if (handValue==21 && GetHand.Count ==2)
             {
-                _handStatus= HandStatus.BlackJack;
+                Status= HandStatus.BlackJack;
             }
-            else if (handValue == 21 && Hands.Count == 3 && )
-
+            else if (handValue == 21 && GetHand.Count == 3 && GetHand.All(c => c.Value == CardValue.Seven))
+            {
+                Status = HandStatus.TripleSeven;
+            }
+            else if (handValue ==21 && GetHand.Count == 5)
+            {
+                Status = HandStatus.FiveCardCharlie;
+            }
+            else
+            {
+                Status = HandStatus.Safe;
+            }
         }
     }
 }

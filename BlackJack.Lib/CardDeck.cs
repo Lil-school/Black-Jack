@@ -26,7 +26,7 @@ namespace BlackJack.Lib
             {
                 foreach (CardValue value in Enum.GetValues(typeof(CardValue)))
                 {
-                    Cards[index] = new Card(suit, value);
+                    Cards[index] = Factory.CreateCard(suit, value);
                     index++;
                 }
             }
