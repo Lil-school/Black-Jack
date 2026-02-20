@@ -7,7 +7,7 @@ namespace BlackJack.Lib.Tests
     public class CardStackTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Card_TestingTheAmountOfCards_Return312Cards()
         {
             // Arrange
             int expectedNumberOfCards = 312;
