@@ -9,6 +9,11 @@ namespace BlackJack.Lib
     public partial class Hand
     {
         /// <summary>
+        /// Represents a collection of cards organized in a stack, allowing for card manipulation and retrieval.
+        /// </summary>
+        CardStack _cardStack = new CardStack();
+
+        /// <summary>
         /// Gets the collection of cards currently held in the hand.
         /// </summary>
         List<ICard> GetHand { get; } =new List<ICard>();
@@ -43,6 +48,7 @@ namespace BlackJack.Lib
         /// <returns>The total value of the hand as an integer. The value will be between 0 and 21 or higher if the hand is bust.</returns>
         public int CalculateValue()
         {
+           
             int handValue = 0;
             int numberOfAces = 0;
             foreach (var card in GetHand)
