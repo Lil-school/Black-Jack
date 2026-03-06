@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractPlayer.cs" />
+    <Compile Include="AbstractPlayerToString.cs" />
+    <Compile Include="AutoPlayer.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="CardStack.cs" />
     <Compile Include="CardSuit.cs" />
@@ -51,7 +54,10 @@
     <Compile Include="HandStatus.cs" />
     <Compile Include="HandToString.cs" />
     <Compile Include="ICard.cs" />
+    <Compile Include="ICardPool.cs" />
     <Compile Include="ICardStack.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,11 +8,7 @@ namespace BlackJack.Lib
     /// </summary>
     public partial class Hand
     {
-        /// <summary>
-        /// Represents the current status of the hand within the application.
-        /// </summary>
-        HandStatus _handStatus;
-
+        
         /// <summary>
         /// Gets the collection of cards currently held in the hand.
         /// </summary>

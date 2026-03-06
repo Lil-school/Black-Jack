@@ -10,7 +10,7 @@ namespace BlackJack.Lib
     /// Represents a stack of playing cards composed of multiple decks, providing functionality to shuffle and draw
     /// cards.
     /// </summary>
-    public class CardStack
+    public class CardStack:ICardPool
     {
         /// <summary>
         /// Gets the collection of cards contained in the deck as a List.
@@ -18,6 +18,7 @@ namespace BlackJack.Lib
         public List<ICard> Cards { get; }=new List<ICard>();
 
         const int NUMBER_OF_DECKS = 6;
+        const int NUMBER_OF_SHUFFLES = 3;
 
         /// <summary>
         /// Initializes a new instance of the CardStack class containing cards from multiple decks and shuffles them.
@@ -29,7 +30,7 @@ namespace BlackJack.Lib
                 CardDeck cardDeck = new CardDeck();
                 Cards.AddRange(cardDeck.Cards);
             }
-            Shuffle(3);
+            Shuffle(NUMBER_OF_SHUFFLES);
         }
 
         /// <summary>

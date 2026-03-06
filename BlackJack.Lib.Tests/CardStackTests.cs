@@ -14,8 +14,7 @@ namespace BlackJack.Lib.Tests
             // Act
             CardStack stack = new CardStack();
             // Assert
-            Assert.AreEqual(expectedNumberOfCards, stack.Cards.Count); 
-
+            Assert.AreEqual(expectedNumberOfCards, stack.Cards.Count);
 
         }
     }

@@ -37,5 +37,10 @@ namespace BlackJack.Lib
         {
             return new Card(card.Suit, card.Value);
         }*/
+
+        public static AbstractPlayer CreateAbstractPlayer(string name, )
+        {
+            return
+        }
     }
 }
