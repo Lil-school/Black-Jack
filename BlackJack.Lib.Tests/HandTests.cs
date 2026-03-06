@@ -14,10 +14,12 @@ namespace BlackJack.Lib.Tests
         /// </summary>
         /// <param name="cardValues"></param>
         /// <param name="expectedValue"></param>
-        [DataRow(new[] { CardValue.Ten, CardValue.Ace, CardValue.Queen }, 21)]
-        [DataRow(new[] { CardValue.Seven, CardValue.Seven, CardValue.Ace }, 15)]
-        [DataRow(new[] { CardValue.Ace, CardValue.Ace, CardValue.Ace }, 13)]
-        [DataRow(new[] { CardValue.Ace, CardValue.Ace, CardValue.Ace, CardValue.Ace,CardValue.Ace }, 15)]
+        [DataRow(new[] { CardValue.Two, CardValue.Three, CardValue.Seven }, 12)]
+        [DataRow(new[] { CardValue.Jack, CardValue.Jack }, 20)]
+        [DataRow(new[] { CardValue.Two, CardValue.Ten, CardValue.Ace }, 13)]
+        [DataRow(new[] { CardValue.Ace, CardValue.Ten, CardValue.Two }, 13)]
+        [DataRow(new[] {CardValue.Ace, CardValue.Nine, CardValue.Ace }, 20)]
+        [DataRow(new[] {CardValue.Ace,CardValue.Ace,CardValue.Ace, CardValue.Ace}, 14)]
         [TestMethod]
         public void CalculateValue_ShouldCalculateTheCorrectValueDependingOnTheAce_CorrectValue(CardValue[] cardValues, int expectedValue)
         {

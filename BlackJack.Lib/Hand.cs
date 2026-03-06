@@ -9,9 +9,9 @@ namespace BlackJack.Lib
     public partial class Hand
     {
         /// <summary>
-        /// Represents a collection of cards organized in a stack, allowing for card manipulation and retrieval.
+        /// Represents the current status of the hand within the application.
         /// </summary>
-        CardStack _cardStack = new CardStack();
+        HandStatus _handStatus;
 
         /// <summary>
         /// Gets the collection of cards currently held in the hand.
@@ -21,7 +21,10 @@ namespace BlackJack.Lib
         /// <summary>
         /// Gets or sets the current status of the hand.
         /// </summary>
-        public HandStatus Status { get; private set; }
+        public HandStatus Status
+        {
+            get; private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the Hand class and updates its status.
@@ -34,12 +37,15 @@ namespace BlackJack.Lib
         }
 
         /// <summary>
-        /// Adds a card to the current hand.
+        /// Adds a card to the hand and updates the hand's total value.
         /// </summary>
-        /// <param name="card">The card to add to the hand. Cannot be null.</param>
+        /// <remarks>This method modifies the hand by appending the specified card and recalculates the
+        /// hand's value. Use this method to incrementally build a hand during gameplay.</remarks>
+        /// <param name="card">The card to be added to the hand. This parameter cannot be null.</param>
         public void AddCard(ICard card)
         {
             GetHand.Add(card);
+            CalculateValue();
         }
 
         /// <summary>

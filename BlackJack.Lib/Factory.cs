@@ -18,7 +18,7 @@ namespace BlackJack.Lib
         /// Creates a new instance of a card stack.
         /// </summary>
         /// <returns>An object that implements the <see cref="ICardStack"/> interface, representing an empty card stack.</returns>
-        public static ICardStack CreateCardStack()
+        public static CardStack CreateCardStack()
         {
             return new CardStack();
         }

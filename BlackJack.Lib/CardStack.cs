@@ -10,7 +10,7 @@ namespace BlackJack.Lib
     /// Represents a stack of playing cards composed of multiple decks, providing functionality to shuffle and draw
     /// cards.
     /// </summary>
-    public class CardStack: ICardStack
+    public class CardStack
     {
         /// <summary>
         /// Gets the collection of cards contained in the deck as a List.
@@ -57,7 +57,7 @@ namespace BlackJack.Lib
         /// Removes and returns the top card from the deck.
         /// </summary>
         /// <returns>The card that was at the top of the deck.</returns>
-        public Card DrawCard()
+        public ICard DrawCard()
         {
             var card = Cards[0];
             Cards.RemoveAt(0);
