@@ -40,7 +40,7 @@ namespace BlackJack.Lib
 
         public static AbstractPlayer CreateAbstractPlayer(string name,)
         {
-            return
+            return //nur da fürs testen
         }
     }
 }
