@@ -19,7 +19,12 @@ namespace BlackJack.Lib
         {
         }
 
-
+        /// <summary>
+        /// Determines the next action for the player based on the current hand value and the dealer's visible card.
+        /// </summary>
+        /// <param name="DealerCard">The card shown by the dealer, which may influence the player's decision to hit or stand.</param>
+        /// <returns>A value from the PlayerAction enumeration indicating the player's next action: Hit, Stand, or None if no
+        /// action is taken.</returns>
         public PlayerAction GetNextAction(ICard DealerCard)
         {
             if(GetHandValue() <DEALERHIGHESTPOSSIBLE)

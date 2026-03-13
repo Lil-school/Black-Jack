@@ -49,6 +49,7 @@
     <Compile Include="CardSuit.cs" />
     <Compile Include="CardValue.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="Dealer.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="HandStatus.cs" />
